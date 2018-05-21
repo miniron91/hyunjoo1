@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08폼양식.html</title>
+</head>
+<body>
+<!--
+    form태그: 폼태그는 서버쪽으로 데이터를 전송하고자 할 때
+            사용하며, form태그 안에는 여러가지 입력 양식이
+            들어갈 수 있다.
+       [form태그 속성]
+       -action: 폼 양식을 처리해 줄 서버 페이지를 기술
+       -method: 데이터 전송방식을 기술. 주로 get 아니면 post를 사용
+       -name: 역시 여러 form들을 식별하고자 할 때 사용하며
+            주로 자바스크립트 처리시 사용되는 식별자
+       -enctype: 인코딩 방식을 지정
+                파일 업로드 시 multiport/form-data를 지정해야 함
+       [주의] 한 페이지 내에 여러 개의 form이 올 수 있으나,
+            중첩해서 오면 안됨.
+-->
+<h1>Form 양식 (form control(component))</h1>
+<form name="frm" id="frm" action="join.jsp" method="get">
+    <label for="nameId">이름</label> <!--id값 nameId가 들어감(nameId를 위한 라벨)-->
+    <input type="text" name="name" id="nameId"><p>
+    <!--jsp에서는 name속성이 중요. 파라미터네임을 지정함
+        JavaScript에서는 id속성을 많이 사용
+    -->
+    아이디
+    <input type="text" name="id" id="id" maxlength="8">*6글자 이상 8자 이내여야 해요<p>
+
+    비밀번호
+    <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요" size="40"><p>
+    <!-- type을 password로 하면 암호화되어서 안보임 -->
+
+    성별
+    <input type="radio" name="gender" id="gm" value="M" checked>
+    <label for="gm">남자</label>
+    <input type="radio" name="gender" id="gf" value="F">
+    <label for="gf">여자</label>
+    <!-- value를 적어줘야 method="get"으로 넘길 때 값이 넘겨진다. -->
+    <!-- 단일선택: radio. 동일한 name을 주어야 단일선택이 된다. -->
+    <p>
+    취미
+    <input type="checkbox" name="hobby" id="h1" value="Music">
+    <label for="h1">음악감상</label>
+    <input type="checkbox" name="hobby" id="h2" value="Movie">
+    <label for="h2">영화감상</label>
+    <input type="checkbox" name="hobby" id="h3" value="Training">
+    <label for="h3">운동</label>
+    <p>
+    파일업로드
+    <input type="file" name="attach" id="attach"><p>
+    드롭다운리스트:
+    <select name="job">
+        <optgroup label="직업을 선택하세요">
+            <option value="Developer">개발자</option>
+            <option value="Designer">디자이너</option>
+            <option value="Operator">운영자</option>
+        </optgroup>
+    </select>
+    <p>
+    리스트박스:
+    <select name="lang" size="4" mutiple>
+        <!--size속성을 주면 리스트박스 형태가 된다.
+            multiple 속성을 주면 다중선택을 할 수 있다.-->
+        <optgroup label="사용가능한 언어">
+            <option value="Java">Java</option>
+            <option value="C">C</option>
+            <option value="JSP">JSP</option>
+            <option value="Python">Python</option>
+        </optgroup>
+    </select>
+    <p>
+    멀티라인 텍스트박스:
+    <textarea rows="7" cols="60" name="content"></textarea>
+    <input type="hidden" name="mydata" value="TopSecret">
+    <input type="submit" value="전송">
+
+</form>
+</body>
+</html>
